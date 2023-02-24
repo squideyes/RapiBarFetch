@@ -5,7 +5,7 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Description>A demo app that downloads historical bar-data via Rithmic's R|API+, and then it processes that data into daily bar files and in a variety of formats.</Description>
+		<Description>A modern C# demo app that downloads historical bar-sets via Rithmic's R|API+</Description>
 		<Copyright>Copyright 2023 by Louis S. Berman</Copyright>
 		<PackageTags>RAPI;R|API+;Rithmic</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
