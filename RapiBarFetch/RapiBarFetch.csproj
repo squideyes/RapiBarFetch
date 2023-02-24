@@ -16,6 +16,7 @@
 		<Product>RapiBarFetch</Product>
 		<Authors>Louis S. Berman</Authors>
 		<Title>R|API+ Bar Downloader Demo</Title>
+		<UserSecretsId>e9741105-118e-464b-bf42-b0f293e6ebd6</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>

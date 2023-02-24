@@ -2,7 +2,7 @@
   "profiles": {
     "RapiBarFetch": {
       "commandName": "Project",
-      "commandLineArgs": "--assets=ALL\r\n--dates=02/20/2023..\r\n--sizes=M1\r\n--kinds=CSV"
+      "commandLineArgs": "--assets=ES,NQ\r\n--dates=02/20/2023\r\n--sizes=M1,M5,S30\r\n--kinds=CSV,NINJA"
     }
   }
 }

@@ -47,7 +47,7 @@ internal class SessionCallbacks : RCallbacks
                     connectionIds.Add(History);
                     break;
                 default:
-                    logger.Warning($"UnexpectedLogin (COnnectionId: {info.ConnectionId}, Code: {info.RpCode}, Message: {info.Message})");
+                    logger.Warning($"UnexpectedLogin (ConnectionId: {info.ConnectionId}, Code: {info.RpCode}, Message: {info.Message})");
                     eventSink.LoginFailed();
                     return;
             }

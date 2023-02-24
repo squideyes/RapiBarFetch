@@ -8,15 +8,15 @@ using RapiBarFetch;
 using Serilog;
 using Serilog.Sinks.SystemConsole.Themes;
 
-if (!TryGetSettings(args, out Settings settings))
-    return ExitCode.SettingsParseError;
-
 var logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.Console(
         theme: AnsiConsoleTheme.Code,
         outputTemplate: "[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}")
     .CreateLogger();
+
+if (!TryGetSettings(logger, args, out Settings settings))
+    return ExitCode.SettingsParseError;
 
 try
 {
@@ -29,7 +29,7 @@ try
 catch (com.omnesys.omne.om.OMException error)
 {
     logger.Error(error.Message);
-    
+
     return ExitCode.RapiError;
 }
 catch (Exception error)
@@ -39,7 +39,7 @@ catch (Exception error)
     return ExitCode.InternalError;
 }
 
-static bool TryGetSettings(string[] args, out Settings settings)
+static bool TryGetSettings(ILogger logger, string[] args, out Settings settings)
 {
     var mappings = new Dictionary<string, string>()
     {
@@ -60,10 +60,25 @@ static bool TryGetSettings(string[] args, out Settings settings)
 
         settings = new Settings(config);
 
-        return true;
+        if (settings.TradeDates.Length == 0)
+        {
+            logger.Warning("One or more valid dates must be specified!");
+
+            Console.WriteLine();
+
+            DisplayUsage();
+
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
-    catch
+    catch (Exception error)
     {
+        logger.Warning(error.Message);
+
         DisplayUsage();
 
         settings = null!;

@@ -104,9 +104,6 @@ public partial class Settings
                     .Where(Known.TradeDates.Contains).ToHashSet());
             }
 
-            if (tradeDates.Count == 0)
-                throw new ArgumentOutOfRangeException(nameof(value));
-
             return tradeDates.ToArray();
         }
 
