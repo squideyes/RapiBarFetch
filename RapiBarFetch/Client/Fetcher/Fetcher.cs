@@ -11,7 +11,7 @@ using static Serilog.Events.LogEventLevel;
 
 namespace RapiBarFetch;
 
-internal class BarFetcher : IEventSink
+internal class Fetcher : IEventSink
 {
     private readonly Queue<Job> jobs = new();
     private readonly AutoResetEvent shutdownGate = new(false);
@@ -22,7 +22,7 @@ internal class BarFetcher : IEventSink
     private REngine engine = null!;
     private SessionCallbacks session = null!;
 
-    public BarFetcher(ILogger logger, Settings settings)
+    public Fetcher(ILogger logger, Settings settings)
     {
         this.logger = Guard.Against.Null(logger);
         this.settings = Guard.Against.Null(settings);
@@ -85,7 +85,7 @@ internal class BarFetcher : IEventSink
 
         var engineParams = new REngineParams
         {
-            AppName = typeof(BarFetcher).Namespace,
+            AppName = typeof(Fetcher).Namespace,
             AppVersion = "1.0.0",
             AdmCallbacks = new AdminCallbacks(logger),
             LogFilePath = logFilePath,
