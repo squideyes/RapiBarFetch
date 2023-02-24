@@ -1,12 +1,12 @@
-**BARFETCH** downloads historical minute and second bars via Rithmic's R|API+, and then it processes those bars into daily bar files; in a variety of formats.
+**RAPIBARFETCH** downloads historical minute and second bars via Rithmic's R|API+, and then it processes those bars into daily bar files; in a variety of formats.
 
-It should be noted from the onset that the codebase lacks both unit and production tests, and as such, **BARFETCH SHOULD NOT BE USED IN PRODUCTION**!!!
+It should be noted from the onset that the codebase lacks both unit and production tests, and as such, **RAPIBARFETCH SHOULD NOT BE USED IN PRODUCTION**!!!
 
-A key motivation behind the creation of BARFETCH was the fact that Rithmic's own demo was fairly long in the tooth (it was  written for Visual Studio 2010!)  
+A key motivation behind the creation of RAPIBARFETCH was the fact that Rithmic's own demo was fairly long in the tooth (it was  written for Visual Studio 2010!)  
 
-As a contrast, BARFETCH is a high-quality modern example of how to work with R|API+ using C# 11 and .NET 7.0.  It does leverage the (.NET Framework 3.5-based) rapiplus.dll, but the "old" assembly appears to work just fine in a modern context; including cloud-based ASP.NET core applications.
+As a contrast, RAPIBARFETCH is a high-quality modern example of how to work with R|API+ using C# 11 and .NET 7.0.  It does leverage the (.NET Framework 3.5-based) rapiplus.dll, but the "old" assembly appears to work just fine in a modern context; including cloud-based ASP.NET core applications.
 
-Before running BARFETCH, you'll need to set your R\|API+ Username & Password via a pair of Environment Variables (**EV**).  A number of set-and-forget values may also be specified in appsettings.json (**AS**).  Environment Variable names may be (optionally) prefixed by "RapiBarFetch__".
+Before running RAPIBARFETCH, you'll need to set your R\|API+ Username & Password via a pair of Environment Variables (**EV**).  A number of set-and-forget values may also be specified in appsettings.json (**AS**).  Environment Variable names may be (optionally) prefixed by "RapiBarFetch__".
 
 |Setting|Via|Notes|
 |---|---|---|
@@ -21,10 +21,10 @@ Before running BARFETCH, you'll need to set your R\|API+ Username & Password via
 |**LocBrokAddr**|AS|See the R\|API+ documentation for details|
 |**LoggerAddr**|AS|See the R\|API+ documentation for details|
 
-To run BARFETCH, compile the code, using a recent version of  Visual Studio or Visual Studio Code, and then invoke the app via the command-line; per the following:
+To run RAPIBARFETCH, compile the code, using a recent version of  Visual Studio or Visual Studio Code, and then invoke the app via the command-line; per the following:
 
 ```plaintext
-RAPIBARFETCH [[--assets=] [--dates=] [--kinds=] [--sizes=]] | --help
+RAPIRAPIBARFETCH [[--assets=] [--dates=] [--kinds=] [--sizes=]] | --help
 
    assets  Assets to download barsets for or ALL (default)
    dates   Date(s), date-range or ALL (default)
@@ -42,7 +42,7 @@ times will be converted to US/Eastern.
         
 See appsettings.json for set-and-forget values like "SaveToPath" and 
 "LogFilePath." The R|API+ "UserName" and "Password" must be sourced
-from environment variables (with an optional RapiBarFetch__" prefix), 
+from environment variables (with an optional RapiRAPIBARFETCH__" prefix), 
 UserSecrets or the command-line.
 ```
 
