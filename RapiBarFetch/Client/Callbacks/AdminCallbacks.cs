@@ -9,7 +9,7 @@ using System.Text;
 
 namespace RapiBarFetch;
 
-class AdminCallbacks : AdmCallbacks
+internal class AdminCallbacks : AdmCallbacks
 {
     private readonly ILogger logger;
 

@@ -7,13 +7,11 @@ using Ardalis.GuardClauses;
 using com.omnesys.omne.om;
 using com.omnesys.rapi;
 using Serilog;
-using System.Runtime.InteropServices;
 using static Serilog.Events.LogEventLevel;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace RapiBarFetch;
 
-internal class Fetcher : IEventSink
+internal class BarFetcher : IEventSink
 {
     private readonly Queue<Job> jobs = new();
     private readonly AutoResetEvent shutdownGate = new(false);
@@ -24,7 +22,7 @@ internal class Fetcher : IEventSink
     private REngine engine = null!;
     private SessionCallbacks session = null!;
 
-    public Fetcher(ILogger logger, Settings settings)
+    public BarFetcher(ILogger logger, Settings settings)
     {
         this.logger = Guard.Against.Null(logger);
         this.settings = Guard.Against.Null(settings);
@@ -87,7 +85,7 @@ internal class Fetcher : IEventSink
 
         var engineParams = new REngineParams
         {
-            AppName = typeof(Fetcher).Namespace,
+            AppName = typeof(BarFetcher).Namespace,
             AppVersion = "1.0.0",
             AdmCallbacks = new AdminCallbacks(logger),
             LogFilePath = logFilePath,
