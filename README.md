@@ -6,6 +6,8 @@ A key motivation behind the creation of RAPIBARFETCH was the fact that Rithmic's
 
 As a contrast, RAPIBARFETCH is a high-quality modern example of how to work with R|API+ using C# 11 and .NET 7.0.  It does leverage the (.NET Framework 3.5-based) rapiplus.dll, but the "old" assembly appears to work just fine in a modern context; including cloud-based ASP.NET core applications.
 
+In order to compile RAPIBARFETCH, **you'll need to obtain a copy of rapiplus.dll** from the Rithmic folks and then include the assembly in the RAPIBARFETCH project.  By convention, the .dll should be kept under the project in a "Resources" folder.
+
 Before running RAPIBARFETCH, you'll need to set your R\|API+ Username & Password via a pair of Environment Variables (**EV**).  A number of set-and-forget values may also be specified in appsettings.json (**AS**).  Environment Variable names may be (optionally) prefixed by "RapiBarFetch__".
 
 |Setting|Via|Notes|
